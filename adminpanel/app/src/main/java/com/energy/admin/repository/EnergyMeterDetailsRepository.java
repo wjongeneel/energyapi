@@ -14,7 +14,6 @@ public class EnergyMeterDetailsRepository {
     private EntityManager entityManager;
 
     public List<EnergyMeter> findByMeterDetails(String searchQuery) {
-        // Kwetsbare query, gevoelig voor SQL-injectie
         String query = "SELECT * FROM energy_meters WHERE id = '" + searchQuery + "'";
         return entityManager.createNativeQuery(query, EnergyMeter.class).getResultList();
     }
